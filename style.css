@@ -23,7 +23,7 @@ body {
     height: 100%;
 }
 
-#image-container video {
+#image-container img {
     max-width: 80%;
     max-height: 80%;
     cursor: pointer;
