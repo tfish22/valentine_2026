@@ -25,15 +25,15 @@ body {
 
 #image-container img,
 #image-container canvas {
-    max-width: 95%;
-    max-height: 95%;
+    max-width: 100%;
+    max-height: 100%;
     cursor: pointer;
 }
 
 #click-text {
     font-family: 'Sacramento', cursive;
-    font-size: 48px;
-    color: #FB607F;
+    font-size: 52px;
+    color: #f5f2f2;
     margin-bottom: 30px;
     font-style: italic;
 }

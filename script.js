@@ -19,12 +19,14 @@ function displayCat() {
     // Initialize the SuperGif player
     var rub = new SuperGif({ 
         gif: gifImg,
-        loop_mode: false // Don't loop automatically
+        loop_mode: false, // Don't loop automatically
+        max_width: 800, // Set max width for the GIF
+        max_height: 600 // Set max height for the GIF
     });
     
     rub.load(function() {
         // GIF is loaded and paused on first frame
-        console.log('GIF loaded and paused');
+        console.log('GIF loaded and pause');
         console.log('SuperGif object:', rub);
         
         // Get the canvas element that libgif creates
