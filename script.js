@@ -7,7 +7,7 @@ function displayCat() {
     
     // Create the video element
     var catVideo = document.createElement('video');
-    catVideo.src = 'car_heart.mp4';
+    catVideo.src = 'cat_heart.mp4';
     catVideo.muted = true; // Mute the video (required for autoplay policies)
     catVideo.playsInline = true; // For mobile compatibility
     
