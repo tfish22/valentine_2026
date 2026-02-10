@@ -22,7 +22,7 @@ function displayCat() {
     
     rub.load(function() {
         // GIF is loaded and paused on first frame
-        console.log('GIF loaded and paused');
+        console.log('GIF loaded and pause');
         
         // Add click event to play the GIF from the beginning
         gifImg.onclick = function() {
