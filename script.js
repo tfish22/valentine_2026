@@ -115,7 +115,7 @@ function displayCat() {
                     }
                 }, 50); // Check every 50ms
             };
-            console.log('Click handler attached to canvas');
+            console.log('Click handler attached to canva');
         } else {
             console.error('Canvas not found!');
         }
