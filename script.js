@@ -14,6 +14,8 @@ function displayCat() {
     // Add to container
     imageContainer.appendChild(gifImg);
     
+    console.log('Image added to container');
+    
     // Initialize the SuperGif player
     var rub = new SuperGif({ 
         gif: gifImg,
@@ -22,27 +24,26 @@ function displayCat() {
     
     rub.load(function() {
         // GIF is loaded and paused on first frame
-        console.log('GIF loaded and pause');
+        console.log('GIF loaded and paused');
+        console.log('SuperGif object:', rub);
         
-        // Add click event to play the GIF from the beginning
-        gifImg.onclick = function() {
-            console.log('GIF clicked');
-            rub.pause(); // Pause first
-            rub.move_to(0); // Go to first frame
-            rub.play(); // Play the GIF
-            console.log('Playing GIF');
-        };
-        
-        // Also add click to the canvas that libgif creates
+        // Get the canvas element that libgif creates
         var canvas = rub.get_canvas();
+        console.log('Canvas element:', canvas);
+        
         if (canvas) {
             canvas.style.cursor = 'pointer';
+            console.log('Cursor set to pointer on canvas');
+            
             canvas.onclick = function() {
-                console.log('Canvas clicked');
+                console.log('Canvas clicked!');
                 rub.pause();
                 rub.move_to(0);
                 rub.play();
             };
+            console.log('Click handler attached to canvas');
+        } else {
+            console.error('Canvas not found!');
         }
     });
 }
