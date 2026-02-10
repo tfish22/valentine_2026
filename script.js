@@ -19,14 +19,19 @@ function resetClickCounter() {
 // Function to trigger heart pop effect
 function heartPop() {
     console.log('Heart popped!');
-    document.body.style.backgroundColor = '#FF0000';
-    console.log('Background changed to red');
     
-    // Optional: Reset back to pink after a delay
+    // Trigger explosion animation
+    var explosion = document.getElementById('explosion');
+    explosion.classList.add('explode');
+    
+    // Hide the GIF and click text immediately
+    document.getElementById('image-container').style.display = 'none';
+    document.getElementById('click-text').style.display = 'none';
+    
+    // Show valentine message after half a second
     setTimeout(function() {
-        document.body.style.backgroundColor = '#FADADD';
-        console.log('Background reset to pink');
-    }, 2000); // Reset after 2 seconds
+        document.getElementById('valentine-message').style.display = 'block';
+    }, 500);
 }
 
 // Function to display and control the GIF
