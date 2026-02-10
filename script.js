@@ -8,6 +8,7 @@ var TIME_WINDOW = 1000;    // Time window in milliseconds (1 second)
 
 // Function to reset click counter
 function resetClickCounter() {
+    console.log('Resetting click counter');
     clickCount = 0;
     if (clickTimer) {
         clearTimeout(clickTimer);
@@ -19,10 +20,12 @@ function resetClickCounter() {
 function heartPop() {
     console.log('Heart popped!');
     document.body.style.backgroundColor = '#FF0000';
+    console.log('Background changed to red');
     
     // Optional: Reset back to pink after a delay
     setTimeout(function() {
         document.body.style.backgroundColor = '#FADADD';
+        console.log('Background reset to pink');
     }, 2000); // Reset after 2 seconds
 }
 
@@ -71,7 +74,15 @@ function displayCat() {
                 
                 // Track clicks
                 clickCount++;
-                console.log('Click count:', clickCount);
+                console.log('Click count:', clickCount, 'Threshold:', CLICK_THRESHOLD);
+                
+                // Check if threshold reached BEFORE resetting timer
+                if (clickCount >= CLICK_THRESHOLD) {
+                    console.log('Threshold reached! Triggering heart pop');
+                    heartPop();
+                    resetClickCounter();
+                    return; // Don't play the GIF
+                }
                 
                 // Reset timer on each click
                 if (clickTimer) {
@@ -83,13 +94,6 @@ function displayCat() {
                     console.log('Time window expired. Resetting counter.');
                     resetClickCounter();
                 }, TIME_WINDOW);
-                
-                // Check if threshold reached
-                if (clickCount >= CLICK_THRESHOLD) {
-                    heartPop();
-                    resetClickCounter();
-                    return; // Don't play the GIF
-                }
                 
                 // Play the GIF
                 rub.pause();
