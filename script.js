@@ -10,6 +10,8 @@ function displayCat() {
     gifImg.src = 'i-love-you-i-love-you-so-much.gif';
     gifImg.setAttribute('rel:animated_src', 'i-love-you-i-love-you-so-much.gif');
     gifImg.setAttribute('rel:auto_play', '0'); // Don't autoplay
+
+    console.log(gifImg.src);
     
     // Add to container
     imageContainer.appendChild(gifImg);
