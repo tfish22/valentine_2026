@@ -1,30 +1,25 @@
 // script.js
 
-// Function to replay a GIF by resetting its src
-function replayGif(imgElement) {
-    var src = imgElement.src;
-    imgElement.src = '';
-    imgElement.src = src;
-}
-
-// Function to display the cat.gif
+// Function to display and control the video
 function displayCat() {
     // Get the container
     var imageContainer = document.getElementById('image-container');
     
-    // Create the image
-    var catImage = document.createElement('img');
-    catImage.src = 'i-love-you-i-love-you-so-much.gif';
-    catImage.alt = 'Cat';
-
-    // Add click event to replay the GIF
-    catImage.onclick = function() {
-        replayGif(catImage);
+    // Create the video element
+    var catVideo = document.createElement('video');
+    catVideo.src = 'car_heart.mp4';
+    catVideo.muted = true; // Mute the video (required for autoplay policies)
+    catVideo.playsInline = true; // For mobile compatibility
+    
+    // Add click event to replay the video
+    catVideo.onclick = function() {
+        catVideo.currentTime = 0; // Reset to beginning
+        catVideo.play(); // Play the video
     };
     
     // Add it to the page
-    imageContainer.appendChild(catImage);
+    imageContainer.appendChild(catVideo);
 }
 
-// Display the cat.gif initially
+// Display the video initially
 displayCat();
