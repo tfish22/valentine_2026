@@ -10,23 +10,40 @@ function displayCat() {
     gifImg.src = 'i-love-you-i-love-you-so-much.gif';
     gifImg.setAttribute('rel:animated_src', 'i-love-you-i-love-you-so-much.gif');
     gifImg.setAttribute('rel:auto_play', '0'); // Don't autoplay
-
-    console.log(gifImg.src);
     
     // Add to container
     imageContainer.appendChild(gifImg);
     
     // Initialize the SuperGif player
-    var rub = new SuperGif({ gif: gifImg });
+    var rub = new SuperGif({ 
+        gif: gifImg,
+        loop_mode: false // Don't loop automatically
+    });
+    
     rub.load(function() {
         // GIF is loaded and paused on first frame
         console.log('GIF loaded and paused');
         
-        // Add click event to play the GIF
+        // Add click event to play the GIF from the beginning
         gifImg.onclick = function() {
+            console.log('GIF clicked');
+            rub.pause(); // Pause first
             rub.move_to(0); // Go to first frame
             rub.play(); // Play the GIF
+            console.log('Playing GIF');
         };
+        
+        // Also add click to the canvas that libgif creates
+        var canvas = rub.get_canvas();
+        if (canvas) {
+            canvas.style.cursor = 'pointer';
+            canvas.onclick = function() {
+                console.log('Canvas clicked');
+                rub.pause();
+                rub.move_to(0);
+                rub.play();
+            };
+        }
     });
 }
 
