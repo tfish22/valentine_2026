@@ -5,6 +5,7 @@ var clickCount = 0;
 var clickTimer = null;
 var CLICK_THRESHOLD = 10;  // Number of clicks needed
 var TIME_WINDOW = 1000;    // Time window in milliseconds (1 second)
+var noClickCount = 0;      // Track how many times "No" is clicked
 
 // Function to handle button click events
 function selectOption(option) {
@@ -13,13 +14,25 @@ function selectOption(option) {
         // Handle "Yes" response
         alert('Yay! 💕');
     } else if (option === 'no') {
-        // Change text on the "No" button to "You sure?"
-        document.getElementById('no-button').innerText = 'You sure?';
-        // Increase font size of "Yes" button
-        var yesButton = document.getElementById('yes-button');
-        var currentFontSize = window.getComputedStyle(yesButton).getPropertyValue('font-size');
-        var newSize = parseFloat(currentFontSize) * 2;
-        yesButton.style.fontSize = newSize + 'px';
+        noClickCount++;
+        
+        if (noClickCount === 1) {
+            // First "No" click - change button text and show sad cat image
+            document.getElementById('no-button').innerText = 'You sure?';
+            
+            // Show the sad cat image
+            var sadCatContainer = document.getElementById('sad-cat-container');
+            sadCatContainer.innerHTML = '<img src="bear_smooth_1 (1).png" alt="Sad Cat">';
+            sadCatContainer.style.display = 'block';
+        } else if (noClickCount === 2) {
+            // Second "No" click - replace with even sadder image
+            var sadCatContainer = document.getElementById('sad-cat-container');
+            sadCatContainer.innerHTML = 'bear_smooth_2 (1).png" alt="Crying Cat">';
+        } else if (noClickCount >= 3) {
+            // Third "No" click - show the saddest image
+            var sadCatContainer = document.getElementById('sad-cat-container');
+            sadCatContainer.innerHTML = '<img src="bear_smooth_3 (1).png" alt="Saddest Cat">';
+        }
     }
 }
 
@@ -48,6 +61,10 @@ function heartPop() {
     // Show valentine question and buttons after half a second
     setTimeout(function() {
         document.getElementById('valentine-question').style.display = 'block';
+        // Show initial happy cat image
+        var happyCatContainer = document.getElementById('happy-cat-container');
+        happyCatContainer.innerHTML = '<img src="happy_bear.png" alt="Happy Cat">';
+        happyCatContainer.style.display = 'block';
     }, 500);
 }
 
