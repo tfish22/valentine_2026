@@ -15,24 +15,32 @@ function selectOption(option) {
         alert('Yay! 💕');
     } else if (option === 'no') {
         noClickCount++;
-
+        
         // Hide the happy cat container
         document.getElementById('happy-cat-container').style.display = 'none';
         
+        // Show the prompt text container
+        var promptText = document.getElementById('prompt-text');
+        promptText.style.display = 'block';
+        
         if (noClickCount === 1) {
-            // First "No" click - change button text and show sad cat image
-            document.getElementById('no-button').innerText = 'You sure?';
+            // First "No" click - show "You Sure?" text and sad bear
+            promptText.innerText = 'You Sure?';
             
             // Show the sad cat image
             var sadCatContainer = document.getElementById('sad-cat-container');
             sadCatContainer.innerHTML = '<img src="bear_smooth_1 (1).png" alt="Sad Bear">';
             sadCatContainer.style.display = 'block';
         } else if (noClickCount === 2) {
-            // Second "No" click - replace with even sadder image
+            // Second "No" click - show "You Really Sure?" and sadder bear
+            promptText.innerText = 'You Really Sure?';
+            
             var sadCatContainer = document.getElementById('sad-cat-container');
             sadCatContainer.innerHTML = '<img src="bear_smooth_2 (1).png" alt="Crying Bear">';
         } else if (noClickCount >= 3) {
-            // Third "No" click - show the saddest image
+            // Third "No" click - show "PLEEEEAAAASE" and saddest bear
+            promptText.innerText = 'PLEEEEAAAASE';
+            
             var sadCatContainer = document.getElementById('sad-cat-container');
             sadCatContainer.innerHTML = '<img src="bear_smooth_3 (1).png" alt="Saddest Bear">';
         }
@@ -66,7 +74,7 @@ function heartPop() {
         document.getElementById('valentine-question').style.display = 'block';
         // Show initial happy cat image
         var happyCatContainer = document.getElementById('happy-cat-container');
-        happyCatContainer.innerHTML = '<img src="happy_bear.png" alt="Happy Cat">';
+        happyCatContainer.innerHTML = '<img src="happy_bear.png" alt="Happy Bear">';
         happyCatContainer.style.display = 'block';
     }, 500);
 }
