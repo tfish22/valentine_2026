@@ -15,6 +15,9 @@ function selectOption(option) {
         alert('Yay! 💕');
     } else if (option === 'no') {
         noClickCount++;
+
+        // Hide the happy cat container
+        document.getElementById('happy-cat-container').style.display = 'none';
         
         if (noClickCount === 1) {
             // First "No" click - change button text and show sad cat image
@@ -22,16 +25,16 @@ function selectOption(option) {
             
             // Show the sad cat image
             var sadCatContainer = document.getElementById('sad-cat-container');
-            sadCatContainer.innerHTML = '<img src="bear_smooth_1 (1).png" alt="Sad Cat">';
+            sadCatContainer.innerHTML = '<img src="bear_smooth_1 (1).png" alt="Sad Bear">';
             sadCatContainer.style.display = 'block';
         } else if (noClickCount === 2) {
             // Second "No" click - replace with even sadder image
             var sadCatContainer = document.getElementById('sad-cat-container');
-            sadCatContainer.innerHTML = 'bear_smooth_2 (1).png" alt="Crying Cat">';
+            sadCatContainer.innerHTML = '<img src="bear_smooth_2 (1).png" alt="Crying Bear">';
         } else if (noClickCount >= 3) {
             // Third "No" click - show the saddest image
             var sadCatContainer = document.getElementById('sad-cat-container');
-            sadCatContainer.innerHTML = '<img src="bear_smooth_3 (1).png" alt="Saddest Cat">';
+            sadCatContainer.innerHTML = '<img src="bear_smooth_3 (1).png" alt="Saddest Bear">';
         }
     }
 }
