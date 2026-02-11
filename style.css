@@ -47,13 +47,38 @@ body {
     color: white;
 }
 
-#valentine-message {
-    font-family: 'Sacramento', cursive;
-    font-size: 72px;
-    color: white;
+#valentine-question {
     display: none;
     position: relative;
     z-index: 10;
+    text-align: center;
+}
+
+#question {
+    font-family: 'Sacramento', cursive;
+    font-size: 72px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+#options {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 26px;
+    font-family: 'Sacramento', cursive;
+    background-color: #FB607F;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #FF4D6D;
 }
 
 #explosion {

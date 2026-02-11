@@ -12,7 +12,13 @@
     <div id="container">
         <div id="image-container"></div>
         <div id="click-text">*Click Fast*</div>
-        <div id="valentine-message">Will you be my valentine?</div>
+        <div id="valentine-question">
+            <div id="question">Will you be my valentine?</div>
+            <div id="options">
+                <button id="yes-button" onclick="selectOption('yes')">Yes</button>
+                <button id="no-button" onclick="selectOption('no')">No</button>
+            </div>
+        </div>
     </div>
 
     <!-- Include the libgif library -->

@@ -6,6 +6,23 @@ var clickTimer = null;
 var CLICK_THRESHOLD = 10;  // Number of clicks needed
 var TIME_WINDOW = 1000;    // Time window in milliseconds (1 second)
 
+// Function to handle button click events
+function selectOption(option) {
+    // Check which option was clicked
+    if (option === 'yes') {
+        // Handle "Yes" response
+        alert('Yay! 💕');
+    } else if (option === 'no') {
+        // Change text on the "No" button to "You sure?"
+        document.getElementById('no-button').innerText = 'You sure?';
+        // Increase font size of "Yes" button
+        var yesButton = document.getElementById('yes-button');
+        var currentFontSize = window.getComputedStyle(yesButton).getPropertyValue('font-size');
+        var newSize = parseFloat(currentFontSize) * 2;
+        yesButton.style.fontSize = newSize + 'px';
+    }
+}
+
 // Function to reset click counter
 function resetClickCounter() {
     console.log('Resetting click counter');
@@ -28,9 +45,9 @@ function heartPop() {
     document.getElementById('image-container').style.display = 'none';
     document.getElementById('click-text').style.display = 'none';
     
-    // Show valentine message after half a second
+    // Show valentine question and buttons after half a second
     setTimeout(function() {
-        document.getElementById('valentine-message').style.display = 'block';
+        document.getElementById('valentine-question').style.display = 'block';
     }, 500);
 }
 
@@ -64,7 +81,7 @@ function displayCat() {
         // Get total number of frames
         var totalFrames = rub.get_length();
         var halfwayPoint = Math.floor(totalFrames / 2);
-        console.log('Total frames:', totalFrames, 'Halfway:', halfwayPoint);
+        console.log('Total frames:', totalFrams, 'Halfway:', halfwayPoint);
         
         // Get the canvas element that libgif creates
         var canvas = rub.get_canvas();
@@ -115,7 +132,7 @@ function displayCat() {
                     }
                 }, 50); // Check every 50ms
             };
-            console.log('Click handler attached to canva');
+            console.log('Click handler attached to canvas');
         } else {
             console.error('Canvas not found!');
         }
