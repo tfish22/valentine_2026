@@ -43,7 +43,7 @@ function selectOption(option) {
         <h1>Thank you baby I love you so so much &lt;3</h1>
 
         <div class="final-image">
-            <img src="happy_cat.png" alt="Love image">
+            <img src="happy_cat.gif" alt="Love image">
         </div>
 
         <div class="signature">
