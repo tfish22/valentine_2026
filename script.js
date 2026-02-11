@@ -81,7 +81,7 @@ function displayCat() {
         // Get total number of frames
         var totalFrames = rub.get_length();
         var halfwayPoint = Math.floor(totalFrames / 2);
-        console.log('Total frames:', totalFrams, 'Halfway:', halfwayPoint);
+        console.log('Total frames:', totalFrames, 'Halfway:', halfwayPoint);
         
         // Get the canvas element that libgif creates
         var canvas = rub.get_canvas();
