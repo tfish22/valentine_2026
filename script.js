@@ -6,6 +6,30 @@ var clickTimer = null;
 var CLICK_THRESHOLD = 10;  // Number of clicks needed
 var TIME_WINDOW = 1000;    // Time window in milliseconds (1 second)
 var noClickCount = 0;      // Track how many times "No" is clicked
+var bounceInterval = null; // Store bounce interval
+
+// Function to make the No button bounce around
+function startBouncing() {
+    var noButton = document.getElementById('no-button');
+    noButton.classList.add('bouncing');
+    
+    function moveButton() {
+        var maxX = window.innerWidth - noButton.offsetWidth - 20;
+        var maxY = window.innerHeight - noButton.offsetHeight - 20;
+        
+        var randomX = Math.random() * maxX;
+        var randomY = Math.random() * maxY;
+        
+        noButton.style.left = randomX + 'px';
+        noButton.style.top = randomY + 'px';
+    }
+    
+    // Move immediately
+    moveButton();
+    
+    // Keep moving every 500ms
+    bounceInterval = setInterval(moveButton, 500);
+}
 
 // Function to handle button click events
 function selectOption(option) {
@@ -37,12 +61,15 @@ function selectOption(option) {
             
             var sadCatContainer = document.getElementById('sad-cat-container');
             sadCatContainer.innerHTML = '<img src="bear_smooth_2 (1).png" alt="Crying Bear">';
-        } else if (noClickCount >= 3) {
+        } else if (noClickCount === 3) {
             // Third "No" click - show "PLEEEEAAAASE" and saddest bear
             promptText.innerText = 'PLEEEEAAAASE';
             
             var sadCatContainer = document.getElementById('sad-cat-container');
             sadCatContainer.innerHTML = '<img src="bear_smooth_3 (1).png" alt="Saddest Bear">';
+            
+            // Start bouncing the No button
+            startBouncing();
         }
     }
 }

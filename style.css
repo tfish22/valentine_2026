@@ -89,6 +89,13 @@ button:hover {
     background-color: #FF4D6D;
 }
 
+#no-button.bouncing {
+    position: fixed;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    z-index: 1000;
+}
+
 #happy-cat-container,
 #sad-cat-container {
     margin-top: 30px;
