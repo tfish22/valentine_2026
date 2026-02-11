@@ -35,8 +35,23 @@ function startBouncing() {
 function selectOption(option) {
     // Check which option was clicked
     if (option === 'yes') {
-        // Handle "Yes" response
-        alert('Yay! 💕');
+        // Create final page overlay
+    const finalPage = document.createElement('div');
+    finalPage.className = 'final-page';
+
+    finalPage.innerHTML = `
+        <h1>Thank you baby I love you so so much &lt;3</h1>
+
+        <div class="final-image">
+            <img src="happy_bear.png" alt="Love image">
+        </div>
+
+        <div class="signature">
+            Love, Rogan 2/14/2026
+        </div>
+    `;
+
+    document.body.appendChild(finalPage);
     } else if (option === 'no') {
         noClickCount++;
         
